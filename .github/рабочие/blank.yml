@@ -1,0 +1,12 @@
+1 + вывод идентификаторов не пройденных тестовых примеров. Позволяет
+локализовать тестовые примеры, потенциально выявившие дефект
+Invoking test case 1 … Passed
+Invoking test case 2 … Failed
+Invoking test case 3 … Failed
+<…>
+Invoking test case 200 … Passed
+Final stats:
+180 test cases passed
+20 test cases failed
+200 test cases total
+ect.
