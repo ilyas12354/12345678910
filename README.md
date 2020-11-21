@@ -1,65 +1,35 @@
 # 12345678910
-1234567891020
+Invoking test case 1 … Passed
+ A = 0 A = 0 P
+ B = 0 B = 0 P
+ C = 500 C = 500 P
+ D = 600 D = 600 P
+ Message = “” Message = “” P
+---
+Invoking test case 2 … Failed
+51
+Expected values: Actual values:
+ A = 200 A = 0 FAIL
+ B = 450 B = 0 FAIL
+ C = 500 C = 500 P
+ D = 600 D = 600 P
+ Message = “Submenu 1” Message = “” FAIL
+---
+Invoking test case 3 … Failed
+Expected values: Actual values:
+ A = 0 A = 200 FAIL
+ B = 0 B = 300 FAIL
+ C = 500 C = 500 P
+ D = 600 D = 600 P
+ Message = “” Message = “Main Menu” FAIL
+---
+<…>
+Invoking test case 200 … Passed
+ Message = “Submenu 1” Message = “Submenu 1 P
+ Prompt = “>” Prompt = “>” P
+---
+Final Stats
+180 test cases passed
+20 test cases failed
+200 test cases total
 
-Состояние окружения (входные данные - X ):
-Статус склада - 32. Пришел подшипник.
-Статус обмена с терминалом подшипника (0 - есть подшипник) и его параметры  «Статус=0 Диаметр=12».
-Статус обмена с терминалом оси (1 - нет оси) и ее параметры - «Статус=1 Диаметр=12».
-Статус команды - 0. Команда успешно принята.
-ВЫЗОВ: GetStoreStat
-РЕЗУЛЬТАТ: 32
-ВЫЗОВ: GetRollerPar
-РЕЗУЛЬТАТ: Статус = 0 Диаметр = 12
-ВЫЗОВ: GetAxlePar
-РЕЗУЛЬТАТ: Статус = 1 Диаметр = 0
-ВЫЗОВ: SendStoreCom
-РЕЗУЛЬТАТ: 0
-ВЫЗОВ: GetStoreMessage
-РЕЗУЛЬТАТ: 1
-class Test1:Test {
-
-         override public void start() {
-
-//Задаем состояние окружения (входные данные)
-
-         StoreStat="32";                       //Поступил подшипник
-
-         RollerPar="0 NewUser Depot1 123456 1 12 1 1";
-
-//статус обмена с терминалом подшипника (0 - есть подшипник) и его параметры
-
-         AxlePar="1 NewUser Depot1 123456 1 0 12 12";
-
-//статус обмена с терминалом оси (1 - нет оси) и ее параметры
-
-CommandStatus="0"; //команда успешно принята
-
-StoreMessage="1"; //успешно выполнена
-
-//Получаем информацию о функционировании системы
-
-         wait("GetStoreStat"); //опрос статуса склада
-
-         wait("GetRollerPar");
-
-//Получение информации о подшипнике с терминала подшипника
-
-         wait("GetAxlePar");
-
-//Получение информации об оси с терминала оси
-
-         wait("SendStoreCom"); //добавление в очередь команд склада
-
-                                                    // на первое место
-
-//команды GetR (получить из приемника в ячейку)
-
-         wait("GetStoreMessage");
-
-//Получение сообщения от склада о результатах выполнения команды
-
-//В результате первый подшипник должен быть принят
-
-         }
-
-}
